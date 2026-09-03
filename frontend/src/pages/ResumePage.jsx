@@ -37,7 +37,7 @@ const ResumePage = () => {
     formData.append('file', file);
     formData.append('role', role);
     try {
-      const res = await axios.post(`http://localhost:8000/api/resume/upload?role=${role}`, formData, {
+      const res = await axios.post('https://interviewx-personalized-interviewx.onrender.com/api/resume/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setResult(res.data);

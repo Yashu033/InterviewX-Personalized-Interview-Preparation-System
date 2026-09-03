@@ -14,7 +14,7 @@ const SignupPage = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('http://localhost:8000/api/auth/signup', formData);
+      const response = await axios.post('https://interviewx-personalized-interviewx.onrender.com/api/auth/signup', formData);
       localStorage.setItem('token', response.data.access_token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
       navigate('/dashboard');

@@ -324,7 +324,7 @@ const InterviewPage = () => {
       try {
         const user = JSON.parse(localStorage.getItem('user') || '{}');
         localStorage.setItem('interview_history', JSON.stringify(history));
-        const res = await axios.post('http://localhost:8000/api/interview/finalize', {
+        const res = await axios.post('https://interviewx-personalized-interviewx.onrender.com/api/interview/finalize', {
           user_id: user.id,
           qa_history: history
         });
@@ -348,7 +348,7 @@ const InterviewPage = () => {
     }
     setLoadingQ(true); setEvaluation(null); setAiResponse(null); setAnswer('');
     try {
-      const res = await axios.post('http://localhost:8000/api/interview/question', { role, context: history.map(h => h.question) });
+      const res = await axios.post('https://interviewx-personalized-interviewx.onrender.com/api/interview/question', { role, context: history.map(h => h.question) });
       setCurrentQuestion(res.data.question); setStarted(true); setQuestionCount(p => p + 1);
       speakQuestion(res.data.question);
     } catch (err) { console.error(err); } finally { setLoadingQ(false); }
@@ -365,9 +365,9 @@ const InterviewPage = () => {
 
     try {
       const [evalRes, aiRes] = await Promise.allSettled([
-        axios.post('http://localhost:8000/api/interview/evaluate', { question: currentQuestion, user_answer: answer, role }),
+        axios.post('https://interviewx-personalized-interviewx.onrender.com/api/interview/evaluate', { question: currentQuestion, user_answer: answer, role }),
         selectedPersonality
-          ? axios.post('http://localhost:8000/api/interview/ai-followup', {
+          ? axios.post('https://interviewx-personalized-interviewx.onrender.com/api/interview/ai-followup', {
               question: currentQuestion, user_answer: answer,
               personality: selectedPersonality, role,
               conversation_history: history.slice(0, 3).map(h => ({ question: h.question, answer: h.answer }))

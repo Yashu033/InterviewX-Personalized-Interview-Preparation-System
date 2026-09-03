@@ -33,7 +33,7 @@ const FeedbackPage = () => {
       // For this demo, we'll try to find any recent session data
       const history = JSON.parse(localStorage.getItem('interview_history') || '[]');
       
-      const res = await axios.post('http://localhost:8000/api/interview/report', {
+      const res = await axios.post('https://interviewx-personalized-interviewx.onrender.com/api/interview/report', {
         user_id: user.id,
         qa_history: history
       });

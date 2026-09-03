@@ -17,7 +17,7 @@ const RoadmapPage = () => {
     setCompleted({});
     setExpandedWeeks({ 0: true }); // Expand first week by default
     try {
-      const res = await axios.post('https://interviewx-personalized-interviewx.onrender.com/api/roadmap', { role, duration_weeks: weeks });
+      const res = await axios.post('https://interviewx-backend-yah00.onrender.com/api/roadmap', { role, duration_weeks: weeks });
       setRoadmap(res.data);
     } catch {
       setRoadmap(null);

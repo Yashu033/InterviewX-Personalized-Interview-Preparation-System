@@ -41,7 +41,7 @@ const CodingPage = () => {
     if (!selectedQ) return;
     setLoading(true); setResult(null);
     try {
-      const res = await axios.post('https://interviewx-personalized-interviewx.onrender.com/api/coding/submit', {
+      const res = await axios.post('https://interviewx-backend-yah00.onrender.com/api/coding/submit', {
         question_id: selectedQ.id, code, language: 'python',
       });
       setResult(res.data);

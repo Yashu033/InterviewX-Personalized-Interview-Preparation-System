@@ -16,7 +16,7 @@ const CompanyPage = () => {
     setLoading(true);
     setData(null);
     try {
-      const res = await axios.post('https://interviewx-personalized-interviewx.onrender.com/api/company', { company_name: company });
+      const res = await axios.post('https://interviewx-backend-yah00.onrender.com/api/company', { company_name: company });
       setData(res.data);
     } catch {
       setData(null);

@@ -14,7 +14,7 @@ const LoginPage = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('https://interviewx-personalized-interviewx.onrender.com/api/auth/login', formData);
+      const response = await axios.post('https://interviewx-backend-yah00.onrender.com/api/auth/login', formData);
       localStorage.setItem('token', response.data.access_token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
       navigate('/dashboard');
